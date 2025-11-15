@@ -9,24 +9,28 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // -----------------------------------------
-// HABILITAR CORS PARA BLAZOR WEBASSEMBLY
+// HABILITAR CORS PARA BLAZOR
 // -----------------------------------------
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazor",
         policy =>
         {
-            policy.WithOrigins("https://localhost:7093") // URL de tu Blazor WASM
+            policy.WithOrigins("https://localhost:7093")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
 });
 
-// Configurar EF Core
+// -----------------------------------------
+// PASO 8: REGISTRAR DBCONTEXT
+// -----------------------------------------
 builder.Services.AddDbContext<GestorAlquilerApiDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Inyectar repositorio
+// -----------------------------------------
+// PASO 8: REGISTRAR REPOSITORIOS
+// -----------------------------------------
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
 var app = builder.Build();
@@ -39,9 +43,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// -----------------------------------------
-// ACTIVAR CORS ANTES DE MapControllers()
-// -----------------------------------------
 app.UseCors("AllowBlazor");
 
 app.UseAuthorization();

@@ -1,7 +1,8 @@
 ﻿using GestorAlquiler.API.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GestorAlquiler.API.Data
+namespace GestorAlquiler.Infrastructure.Persistence.Context;
+
 {
     public class GestorAlquilerApiDbContext : DbContext
     {

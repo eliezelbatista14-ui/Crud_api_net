@@ -21,4 +21,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GestorAlquiler,Infrastructure\GestorAlquiler,Infrastructure.vbproj" />
+    <ProjectReference Include="..\GestorAlquiler.Domain\GestorAlquiler.Domain.vbproj" />
+  </ItemGroup>
+
 </Project>

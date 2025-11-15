@@ -1,4 +1,4 @@
-﻿namespace GestorAlquiler.API.Models
+﻿namespace GestorAlquiler.API.Entities
 {
     public class Cliente
     {

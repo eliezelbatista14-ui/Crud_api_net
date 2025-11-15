@@ -1,6 +1,6 @@
-﻿using GestorAlquiler.API.Models;
-using GestorAlquiler.API.Repositories;
-using Microsoft.AspNetCore.Mvc;
+﻿using GestorAlquiler.Domain.Entities;
+using GestorAlquiler.Domain.Interfaces;
+
 
 namespace GestorAlquiler.API.Controllers
 {
@@ -10,10 +10,11 @@ namespace GestorAlquiler.API.Controllers
     {
         private readonly IClienteRepository _repo;
 
-        public ClientesController(IClienteRepository repo)
+        public ClienteController(IClienteRepository repo)
         {
             _repo = repo;
         }
+
 
         // GET api/clientes
         [HttpGet]
@@ -30,7 +31,7 @@ namespace GestorAlquiler.API.Controllers
             var cliente = await _repo.GetByIdAsync(id);
 
             if (cliente == null)
-                return NotFound();
+                return NotFound(new { message = "Cliente no encontrado." });
 
             return Ok(cliente);
         }
@@ -41,6 +42,9 @@ namespace GestorAlquiler.API.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
+
+            // Evitar IDs en POST
+            cliente.ClienteId = 0;
 
             var newCliente = await _repo.AddAsync(cliente);
 
@@ -53,12 +57,15 @@ namespace GestorAlquiler.API.Controllers
         [HttpPut("{id:int}")]
         public async Task<IActionResult> Put(int id, [FromBody] Cliente cliente)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             if (id != cliente.ClienteId)
-                return BadRequest("El ID de la URL no coincide con el ID del cliente.");
+                return BadRequest(new { message = "El ID de la URL no coincide con el ID del cliente." });
 
             var existing = await _repo.GetByIdAsync(id);
             if (existing == null)
-                return NotFound();
+                return NotFound(new { message = "Cliente no encontrado." });
 
             var updatedCliente = await _repo.UpdateAsync(cliente);
             return Ok(updatedCliente);
@@ -71,7 +78,7 @@ namespace GestorAlquiler.API.Controllers
             var deleted = await _repo.DeleteAsync(id);
 
             if (!deleted)
-                return NotFound();
+                return NotFound(new { message = "Cliente no encontrado." });
 
             return NoContent();
         }
