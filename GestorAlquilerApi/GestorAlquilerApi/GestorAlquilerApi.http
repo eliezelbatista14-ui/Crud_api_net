@@ -1,0 +1,6 @@
+@GestorAlquilerApi_HostAddress = http://localhost:5239
+
+GET {{GestorAlquilerApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

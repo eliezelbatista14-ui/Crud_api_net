@@ -1,0 +1,28 @@
+﻿@page "/clientes"
+@inject HttpClient Http
+
+<h3>Clientes</h3>
+
+<ul>
+    @foreach (var cliente in clientes)
+    {
+        <li>@cliente.Nombre (@cliente.Email)</li>
+    }
+</ul>
+
+@code {
+    private List<Cliente> clientes = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        clientes = await Http.GetFromJsonAsync<List<Cliente>>("api/clientes") ?? new List<Cliente>();
+    }
+
+    public class Cliente
+    {
+        public int ClienteId { get; set; }
+        public string Nombre { get; set; } = null!;
+        public string? Telefono { get; set; }
+        public string? Email { get; set; }
+    }
+}

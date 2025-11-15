@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorAlquilerApi", "GestorAlquilerApi\GestorAlquilerApi.csproj", "{FB8A9497-25DE-4CBC-B949-C94873DFF6D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestorAlquiler.Cliente", "GestorAlquiler.Cliente\GestorAlquiler.Cliente.csproj", "{DE8BD7A6-E07B-4136-A52D-6020ADD45C4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB8A9497-25DE-4CBC-B949-C94873DFF6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8A9497-25DE-4CBC-B949-C94873DFF6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8A9497-25DE-4CBC-B949-C94873DFF6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8A9497-25DE-4CBC-B949-C94873DFF6D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8BD7A6-E07B-4136-A52D-6020ADD45C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8BD7A6-E07B-4136-A52D-6020ADD45C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8BD7A6-E07B-4136-A52D-6020ADD45C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8BD7A6-E07B-4136-A52D-6020ADD45C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78E8283B-2D19-4122-843F-CF17E5EB06E5}
+	EndGlobalSection
+EndGlobal
