@@ -1,4 +1,5 @@
-﻿using GestorAlquiler.Domain.Entities;
+﻿using GestorAlquiler.API.Contract;
+using GestorAlquiler.Domain.Entities;
 using GestorAlquiler.Domain.Interfaces;
 
 
@@ -8,12 +9,13 @@ namespace GestorAlquiler.API.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
-        private readonly IClienteRepository _repo;
+        private readonly IClienteService _service;
 
-        public ClienteController(IClienteRepository repo)
+        public ClientesController(IClienteService service)
         {
-            _repo = repo;
+            _service = service;
         }
+
 
 
         // GET api/clientes
